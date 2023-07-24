@@ -1,6 +1,6 @@
 module github.com/OOPSgary/LProxy_Lite
 
-go 1.19
+go 1.20
 
 require github.com/Tnze/go-mc v1.19.3
 
