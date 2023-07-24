@@ -122,6 +122,7 @@ func Handler(Conn *net.TCPConn) {
 			log.Println("[错误]:", err)
 			return
 		}
+		defer remote.Close()
 		remoteMC := MinecraftNet.WrapConn(remote)
 		err = remoteMC.WritePacket(packet.Marshal(
 			0x0,
@@ -149,6 +150,7 @@ func Handler(Conn *net.TCPConn) {
 			defer remote.Close()
 			io.Copy(Conn, remote)
 		}()
+
 		io.Copy(remote, Conn)
 	}
 }
